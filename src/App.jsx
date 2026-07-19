@@ -7,92 +7,92 @@ import { useState, useMemo } from "react";
    ============================================================ */
 
 const BASE_TEAMS = [
-  { id: 1, name: "África do Sul", pts: 1450 },
-  { id: 2, name: "Albânia", pts: 1400 },
-  { id: 3, name: "Alemanha", pts: 1715 },
-  { id: 4, name: "Argélia", pts: 1510 },
-  { id: 5, name: "Argentina", pts: 1870 },
-  { id: 6, name: "Armênia", pts: 1290 },
-  { id: 7, name: "Áustria", pts: 1585 },
-  { id: 8, name: "Austrália", pts: 1570 },
-  { id: 9, name: "Bélgica", pts: 1735 },
-  { id: 10, name: "Bolívia", pts: 1320 },
-  { id: 11, name: "Bósnia", pts: 1410 },
-  { id: 12, name: "Botsuana", pts: 1050 },
-  { id: 13, name: "Brasil", pts: 1780 },
-  { id: 14, name: "Bulgária", pts: 1300 },
-  { id: 15, name: "Cabo Verde", pts: 1450 },
-  { id: 16, name: "Camarões", pts: 1475 },
-  { id: 17, name: "Canadá", pts: 1560 },
-  { id: 18, name: "Catar", pts: 1420 },
-  { id: 19, name: "Chile", pts: 1470 },
-  { id: 20, name: "China", pts: 1290 },
-  { id: 21, name: "Singapura", pts: 1090 },
-  { id: 22, name: "Colômbia", pts: 1690 },
-  { id: 23, name: "Coreia do Norte", pts: 1150 },
-  { id: 24, name: "Coreia do Sul", pts: 1590 },
-  { id: 25, name: "Costa do Marfim", pts: 1490 },
-  { id: 26, name: "Costa Rica", pts: 1460 },
-  { id: 27, name: "Croácia", pts: 1705 },
-  { id: 28, name: "Dinamarca", pts: 1630 },
-  { id: 29, name: "Egito", pts: 1515 },
-  { id: 30, name: "Emirados Árabes Unidos", pts: 1390 },
-  { id: 31, name: "Equador", pts: 1590 },
-  { id: 32, name: "Eslováquia", pts: 1470 },
-  { id: 33, name: "Eslovênia", pts: 1460 },
-  { id: 34, name: "Espanha", pts: 1880 },
-  { id: 35, name: "EUA", pts: 1680 },
-  { id: 36, name: "Estônia", pts: 1250 },
-  { id: 37, name: "Filipinas", pts: 1130 },
-  { id: 38, name: "Finlândia", pts: 1410 },
-  { id: 39, name: "França", pts: 1860 },
-  { id: 40, name: "Gana", pts: 1440 },
-  { id: 41, name: "Grécia", pts: 1495 },
-  { id: 42, name: "Haiti", pts: 1300 },
-  { id: 43, name: "Holanda", pts: 1755 },
-  { id: 44, name: "Hungria", pts: 1500 },
-  { id: 45, name: "Índia", pts: 1180 },
-  { id: 46, name: "Indonésia", pts: 1160 },
-  { id: 47, name: "Irã", pts: 1620 },
-  { id: 48, name: "Iraque", pts: 1420 },
-  { id: 49, name: "Islândia", pts: 1400 },
-  { id: 50, name: "Irlanda", pts: 1400 },
-  { id: 51, name: "Israel", pts: 1380 },
-  { id: 52, name: "Itália", pts: 1700 },
-  { id: 53, name: "Jamaica", pts: 1380 },
-  { id: 54, name: "Japão", pts: 1650 },
-  { id: 55, name: "Kosovo", pts: 1370 },
-  { id: 56, name: "Líbano", pts: 1250 },
-  { id: 57, name: "Luxemburgo", pts: 1320 },
-  { id: 58, name: "Malásia", pts: 1150 },
-  { id: 59, name: "Malta", pts: 1130 },
-  { id: 60, name: "Marrocos", pts: 1705 },
-  { id: 61, name: "México", pts: 1675 },
-  { id: 62, name: "Mônaco", pts: 950 },
-  { id: 63, name: "Nigéria", pts: 1480 },
-  { id: 64, name: "Noruega", pts: 1520 },
-  { id: 65, name: "Nova Zelândia", pts: 1290 },
-  { id: 66, name: "Panamá", pts: 1470 },
-  { id: 67, name: "Paquistão", pts: 900 },
-  { id: 68, name: "Peru", pts: 1480 },
-  { id: 69, name: "Paraguai", pts: 1475 },
-  { id: 70, name: "Polônia", pts: 1545 },
-  { id: 71, name: "RD do Congo", pts: 1450 },
-  { id: 72, name: "Portugal", pts: 1770 },
-  { id: 73, name: "Suécia", pts: 1550 },
-  { id: 74, name: "Reino Unido", pts: 1815 },
-  { id: 75, name: "Rep. Dominicana", pts: 1200 },
-  { id: 76, name: "Rep. Checa", pts: 1490 },
-  { id: 77, name: "Romênia", pts: 1480 },
-  { id: 78, name: "Rússia", pts: 1530 },
-  { id: 79, name: "Senegal", pts: 1640 },
-  { id: 80, name: "Sérvia", pts: 1520 },
-  { id: 81, name: "Suíça", pts: 1655 },
-  { id: 82, name: "Tunísia", pts: 1500 },
-  { id: 83, name: "Turquia", pts: 1555 },
-  { id: 84, name: "Uruguai", pts: 1670 },
-  { id: 85, name: "Uzbequistão", pts: 1440 },
-  { id: 86, name: "Venezuela", pts: 1320 },
+  { id: 1, name: "África do Sul", pts: 1450, iso: "za" },
+  { id: 2, name: "Albânia", pts: 1400, iso: "al" },
+  { id: 3, name: "Alemanha", pts: 1715, iso: "de" },
+  { id: 4, name: "Argélia", pts: 1510, iso: "dz" },
+  { id: 5, name: "Argentina", pts: 1870, iso: "ar" },
+  { id: 6, name: "Armênia", pts: 1290, iso: "am" },
+  { id: 7, name: "Áustria", pts: 1585, iso: "at" },
+  { id: 8, name: "Austrália", pts: 1570, iso: "au" },
+  { id: 9, name: "Bélgica", pts: 1735, iso: "be" },
+  { id: 10, name: "Bolívia", pts: 1320, iso: "bo" },
+  { id: 11, name: "Bósnia", pts: 1410, iso: "ba" },
+  { id: 12, name: "Botsuana", pts: 1050, iso: "bw" },
+  { id: 13, name: "Brasil", pts: 1780, iso: "br" },
+  { id: 14, name: "Bulgária", pts: 1300, iso: "bg" },
+  { id: 15, name: "Cabo Verde", pts: 1450, iso: "cv" },
+  { id: 16, name: "Camarões", pts: 1475, iso: "cm" },
+  { id: 17, name: "Canadá", pts: 1560, iso: "ca" },
+  { id: 18, name: "Catar", pts: 1420, iso: "qa" },
+  { id: 19, name: "Chile", pts: 1470, iso: "cl" },
+  { id: 20, name: "China", pts: 1290, iso: "cn" },
+  { id: 21, name: "Singapura", pts: 1090, iso: "sg" },
+  { id: 22, name: "Colômbia", pts: 1690, iso: "co" },
+  { id: 23, name: "Coreia do Norte", pts: 1150, iso: "kp" },
+  { id: 24, name: "Coreia do Sul", pts: 1590, iso: "kr" },
+  { id: 25, name: "Costa do Marfim", pts: 1490, iso: "ci" },
+  { id: 26, name: "Costa Rica", pts: 1460, iso: "cr" },
+  { id: 27, name: "Croácia", pts: 1705, iso: "hr" },
+  { id: 28, name: "Dinamarca", pts: 1630, iso: "dk" },
+  { id: 29, name: "Egito", pts: 1515, iso: "eg" },
+  { id: 30, name: "Emirados Árabes Unidos", pts: 1390, iso: "ae" },
+  { id: 31, name: "Equador", pts: 1590, iso: "ec" },
+  { id: 32, name: "Eslováquia", pts: 1470, iso: "sk" },
+  { id: 33, name: "Eslovênia", pts: 1460, iso: "si" },
+  { id: 34, name: "Espanha", pts: 1880, iso: "es" },
+  { id: 35, name: "EUA", pts: 1680, iso: "us" },
+  { id: 36, name: "Estônia", pts: 1250, iso: "ee" },
+  { id: 37, name: "Filipinas", pts: 1130, iso: "ph" },
+  { id: 38, name: "Finlândia", pts: 1410, iso: "fi" },
+  { id: 39, name: "França", pts: 1860, iso: "fr" },
+  { id: 40, name: "Gana", pts: 1440, iso: "gh" },
+  { id: 41, name: "Grécia", pts: 1495, iso: "gr" },
+  { id: 42, name: "Haiti", pts: 1300, iso: "ht" },
+  { id: 43, name: "Holanda", pts: 1755, iso: "nl" },
+  { id: 44, name: "Hungria", pts: 1500, iso: "hu" },
+  { id: 45, name: "Índia", pts: 1180, iso: "in" },
+  { id: 46, name: "Indonésia", pts: 1160, iso: "id" },
+  { id: 47, name: "Irã", pts: 1620, iso: "ir" },
+  { id: 48, name: "Iraque", pts: 1420, iso: "iq" },
+  { id: 49, name: "Islândia", pts: 1400, iso: "is" },
+  { id: 50, name: "Irlanda", pts: 1400, iso: "ie" },
+  { id: 51, name: "Israel", pts: 1380, iso: "il" },
+  { id: 52, name: "Itália", pts: 1700, iso: "it" },
+  { id: 53, name: "Jamaica", pts: 1380, iso: "jm" },
+  { id: 54, name: "Japão", pts: 1650, iso: "jp" },
+  { id: 55, name: "Kosovo", pts: 1370, iso: "xk" },
+  { id: 56, name: "Líbano", pts: 1250, iso: "lb" },
+  { id: 57, name: "Luxemburgo", pts: 1320, iso: "lu" },
+  { id: 58, name: "Malásia", pts: 1150, iso: "my" },
+  { id: 59, name: "Malta", pts: 1130, iso: "mt" },
+  { id: 60, name: "Marrocos", pts: 1705, iso: "ma" },
+  { id: 61, name: "México", pts: 1675, iso: "mx" },
+  { id: 62, name: "Mônaco", pts: 950, iso: "mc" },
+  { id: 63, name: "Nigéria", pts: 1480, iso: "ng" },
+  { id: 64, name: "Noruega", pts: 1520, iso: "no" },
+  { id: 65, name: "Nova Zelândia", pts: 1290, iso: "nz" },
+  { id: 66, name: "Panamá", pts: 1470, iso: "pa" },
+  { id: 67, name: "Paquistão", pts: 900, iso: "pk" },
+  { id: 68, name: "Peru", pts: 1480, iso: "pe" },
+  { id: 69, name: "Paraguai", pts: 1475, iso: "py" },
+  { id: 70, name: "Polônia", pts: 1545, iso: "pl" },
+  { id: 71, name: "RD do Congo", pts: 1450, iso: "cd" },
+  { id: 72, name: "Portugal", pts: 1770, iso: "pt" },
+  { id: 73, name: "Suécia", pts: 1550, iso: "se" },
+  { id: 74, name: "Reino Unido", pts: 1815, iso: "gb" },
+  { id: 75, name: "Rep. Dominicana", pts: 1200, iso: "do" },
+  { id: 76, name: "Rep. Checa", pts: 1490, iso: "cz" },
+  { id: 77, name: "Romênia", pts: 1480, iso: "ro" },
+  { id: 78, name: "Rússia", pts: 1530, iso: "ru" },
+  { id: 79, name: "Senegal", pts: 1640, iso: "sn" },
+  { id: 80, name: "Sérvia", pts: 1520, iso: "rs" },
+  { id: 81, name: "Suíça", pts: 1655, iso: "ch" },
+  { id: 82, name: "Tunísia", pts: 1500, iso: "tn" },
+  { id: 83, name: "Turquia", pts: 1555, iso: "tr" },
+  { id: 84, name: "Uruguai", pts: 1670, iso: "uy" },
+  { id: 85, name: "Uzbequistão", pts: 1440, iso: "uz" },
+  { id: 86, name: "Venezuela", pts: 1320, iso: "ve" },
 ];
 
 /* ---------------- Motor de probabilidade ---------------- */
@@ -218,6 +218,27 @@ function computeStandings(group, matches) {
 }
 
 const pct = (v) => `${Math.round(v * 100)}%`;
+
+function Flag({ iso, size = 20 }) {
+  if (!iso) return null;
+  return (
+    <img
+      src={`https://flagcdn.com/w40/${iso}.png`}
+      srcSet={`https://flagcdn.com/w80/${iso}.png 2x`}
+      alt=""
+      loading="lazy"
+      width={size}
+      height={Math.round(size * 0.72)}
+      className="shrink-0 rounded-sm"
+      style={{
+        objectFit: "cover",
+        border: "1px solid rgba(240,248,244,0.2)",
+        display: "inline-block",
+      }}
+      onError={(e) => { e.currentTarget.style.display = "none"; }}
+    />
+  );
+}
 
 /* ---------------- Componentes visuais ---------------- */
 
@@ -352,26 +373,32 @@ function MatchCard({ match, knockout, override, onOverride, onSimulate, tag }) {
       <div className="flex items-center justify-between gap-2">
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2">
-            <span
-              className="truncate"
-              style={{
-                color: match.result?.winner === match.a.id ? C.amber : C.text,
-                fontWeight: match.result?.winner === match.a.id ? 700 : 500,
-              }}
-            >
-              {match.a.name}
+            <span className="flex items-center gap-2 min-w-0">
+              <Flag iso={match.a.iso} />
+              <span
+                className="truncate"
+                style={{
+                  color: match.result?.winner === match.a.id ? C.amber : C.text,
+                  fontWeight: match.result?.winner === match.a.id ? 700 : 500,
+                }}
+              >
+                {match.a.name}
+              </span>
             </span>
             {played && <Score value={match.result.ga} />}
           </div>
           <div className="flex items-center justify-between gap-2 mt-1">
-            <span
-              className="truncate"
-              style={{
-                color: match.result?.winner === match.b.id ? C.amber : C.text,
-                fontWeight: match.result?.winner === match.b.id ? 700 : 500,
-              }}
-            >
-              {match.b.name}
+            <span className="flex items-center gap-2 min-w-0">
+              <Flag iso={match.b.iso} />
+              <span
+                className="truncate"
+                style={{
+                  color: match.result?.winner === match.b.id ? C.amber : C.text,
+                  fontWeight: match.result?.winner === match.b.id ? 700 : 500,
+                }}
+              >
+                {match.b.name}
+              </span>
             </span>
             {played && <Score value={match.result.gb} />}
           </div>
@@ -800,6 +827,7 @@ export default function App() {
                         >
                           {idx + 1}º
                         </span>
+                        <Flag iso={t.iso} size={18} />
                         <span className="flex-1 truncate" style={{ fontSize: 14 }}>
                           {t.name}
                         </span>
@@ -916,10 +944,13 @@ export default function App() {
                               }}
                             >
                               <td className="py-1.5 px-2">
-                                <span style={{ color: C.muted, marginRight: 6, fontSize: 11 }}>
-                                  {i + 1}
+                                <span className="flex items-center gap-1.5">
+                                  <span style={{ color: C.muted, fontSize: 11, width: 12 }}>
+                                    {i + 1}
+                                  </span>
+                                  <Flag iso={s.team.iso} size={16} />
+                                  <span className="truncate">{s.team.name}</span>
                                 </span>
-                                {s.team.name}
                               </td>
                               <td className="text-center font-bold" style={{ color: C.amber }}>
                                 {s.pts}
@@ -1048,17 +1079,20 @@ export default function App() {
                 Campeão do mundo
               </p>
               <div style={{ fontSize: 64, lineHeight: 1.1 }}>🏆</div>
-              <h2
-                className="uppercase mt-2"
-                style={{
-                  fontSize: "clamp(32px, 6vw, 56px)",
-                  fontWeight: 900,
-                  color: C.amber,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {champion.name}
-              </h2>
+              <div className="flex items-center justify-center gap-4 mt-2">
+                <Flag iso={champion.iso} size={56} />
+                <h2
+                  className="uppercase"
+                  style={{
+                    fontSize: "clamp(32px, 6vw, 56px)",
+                    fontWeight: 900,
+                    color: C.amber,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {champion.name}
+                </h2>
+              </div>
               <p className="mt-3" style={{ color: C.muted }}>
                 Final: {finalMatch.a.name}{" "}
                 <b style={{ color: C.text }}>
